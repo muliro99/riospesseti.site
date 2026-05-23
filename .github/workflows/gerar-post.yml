@@ -1,0 +1,35 @@
+name: Gerar Post do Blog
+
+on:
+  schedule:
+    # Roda segunda, terca, quinta e sexta as 10h (Brasilia = 13h UTC)
+    - cron: '0 13 * * 1,2,4,5'
+  workflow_dispatch:
+
+jobs:
+  gerar-post:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout do repositorio
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Gerar artigo
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/gerar-post.js
+
+      - name: Commit e push do artigo gerado
+        run: |
+          git config user.name "MazyOS Blog Bot"
+          git config user.email "bot@riosepessetti.adv.br"
+          git add public/blog/posts/ public/blog/posts.json
+          git diff --staged --quiet || git commit -m "blog: artigo automatico $(date +%Y-%m-%d)"
+          git push
