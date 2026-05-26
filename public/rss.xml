@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog Juridico - Rios e Pessetti Advogados</title>
+    <link>https://riosepessetti.adv.br/blog/</link>
+    <atom:link href="https://riosepessetti.adv.br/rss.xml" rel="self" type="application/rss+xml" />
+    <description>Artigos juridicos sobre direito do consumidor, previdenciario, trabalhista e familiar.</description>
+    <language>pt-BR</language>
+    <lastBuildDate>Tue, 26 May 2026 05:51:00 GMT</lastBuildDate>
+    <item>
+      <title><![CDATA[BPC LOAS: Entendendo os Critérios, Valor e Solicitação]]></title>
+      <link>https://riosepessetti.adv.br/blog/posts/bpc-loas-entendendo-os-criterios-valor-e-solicitacao-20260526</link>
+      <guid isPermaLink="true">https://riosepessetti.adv.br/blog/posts/bpc-loas-entendendo-os-criterios-valor-e-solicitacao-20260526</guid>
+      <description><![CDATA[Saiba como funciona o BPC LOAS]]></description>
+      <pubDate>Tue, 26 May 2026 05:50:56 GMT</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Como funciona a aposentadoria por incapacidade permanente]]></title>
+      <link>https://riosepessetti.adv.br/blog/posts/exemplo-direito-previdenciario</link>
+      <guid isPermaLink="true">https://riosepessetti.adv.br/blog/posts/exemplo-direito-previdenciario</guid>
+      <description><![CDATA[Entenda os requisitos, o processo de solicitacao e os direitos de quem precisa do beneficio junto ao INSS.]]></description>
+      <pubDate>Tue, 26 May 2026 05:51:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

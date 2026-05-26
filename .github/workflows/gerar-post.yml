@@ -2,8 +2,8 @@ name: Gerar Post do Blog
 
 on:
   schedule:
-    # Roda segunda, terca, quinta e sexta as 10h (Brasilia = 13h UTC)
-    - cron: '0 13 * * 1,2,4,5'
+    # Roda de segunda a sexta as 10h (Brasilia = 13h UTC)
+    - cron: '0 13 * * 1,2,3,4,5'
   workflow_dispatch:
 
 jobs:
@@ -23,13 +23,13 @@ jobs:
 
       - name: Gerar artigo
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: node scripts/gerar-post.js
 
       - name: Commit e push do artigo gerado
         run: |
           git config user.name "MazyOS Blog Bot"
           git config user.email "bot@riosepessetti.adv.br"
-          git add public/blog/posts/ public/blog/posts.json
+          git add public/blog/posts/ public/blog/posts.json public/rss.xml
           git diff --staged --quiet || git commit -m "blog: artigo automatico $(date +%Y-%m-%d)"
           git push

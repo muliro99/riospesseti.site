@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rios e Pessetti Advogados — Francisco Beltrao, PR</title>
-  <meta name="description" content="Escritorio de advocacia full-service em Francisco Beltrao, PR. Assessoria juridica nas areas Civel, Criminal, Bancaria, Trabalhista e Previdenciaria." />
+  <title>Rios e Pessetti Advogados — Francisco Beltrão, PR</title>
+  <meta name="description" content="Escritório de advocacia full-service em Francisco Beltrão, PR. Direito Cível, Criminal, Trabalhista, Previdenciário, Bancário e Assessoria Jurídica." />
+  <meta name="robots" content="index, follow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="/images/logo-horizontal.png" fetchpriority="high" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
@@ -16,17 +18,16 @@
     <div class="container">
       <nav>
         <ul class="nav-esq">
-          <li><a href="/">Inicio</a></li>
-          <li><a href="/areas.html">Areas</a></li>
+          <li><a href="/">Início</a></li>
+          <li><a href="/areas.html">Áreas</a></li>
           <li><a href="/sobre.html">Sobre</a></li>
         </ul>
         <a href="/" class="nav-logo" aria-label="Rios e Pessetti Advogados">
-          <img src="/images/logo.png" alt="Rios e Pessetti Advogados" />
+          <img src="/images/logo-horizontal.png" alt="Rios e Pessetti Advogados" width="695" height="359" fetchpriority="high" />
         </a>
         <div class="nav-dir">
           <ul class="nav-dir-links">
             <li><a href="/blog/">Blog</a></li>
-            <li><a href="/contato.html" class="nav-cta">Contato</a></li>
           </ul>
           <button class="nav-toggle" aria-label="Menu">
             <span></span><span></span><span></span>
@@ -37,8 +38,8 @@
     <div class="nav-mobile" id="nav-mobile">
       <div class="container">
         <ul>
-          <li><a href="/">Inicio</a></li>
-          <li><a href="/areas.html">Areas de Atuacao</a></li>
+          <li><a href="/">Início</a></li>
+          <li><a href="/areas.html">Áreas de Atuação</a></li>
           <li><a href="/sobre.html">Sobre</a></li>
           <li><a href="/blog/">Blog</a></li>
           <li><a href="/contato.html">Contato</a></li>
@@ -47,154 +48,260 @@
     </div>
   </header>
 
-  <section class="hero">
+  <!-- HERO SPLIT -->
+  <div class="hero-split">
+    <div class="hero-texto">
+      <h1>Soluções jurídicas com seriedade e resultado</h1>
+      <p class="hero-sub">Representamos pessoas e empresas nas principais áreas do direito, com atendimento humanizado e técnica que faz a diferença.</p>
+      <div class="hero-acoes">
+        <a href="/contato.html" class="btn btn-gold">Falar com um advogado &rsaquo;</a>
+        <a href="/areas.html" class="btn btn-outline-gold">Nossas áreas</a>
+      </div>
+    </div>
+    <div class="hero-foto">
+      <div class="hero-foto-placeholder">
+        <div class="hero-foto-icone">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z" />
+          </svg>
+        </div>
+        <span class="hero-foto-legenda">Foto do escritório</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOBRE O ESCRITORIO -->
+  <section style="border-top: 1px solid var(--line-md);">
     <div class="container">
-      <div class="hero-inner">
-        <h1>Assessoria juridica com seriedade e proximidade</h1>
-        <p class="hero-sub">
-          Representamos pessoas nas areas Civel, Criminal, Bancaria, Trabalhista e Previdenciaria. Atendimento personalizado, tecnica consolidada e dedicacao a cada caso.
-        </p>
-        <div class="hero-acoes">
-          <a href="/contato.html" class="btn btn-primario">Agendar consulta</a>
-          <a href="/areas.html" class="btn btn-outline">Nossas areas de atuacao</a>
+      <div class="sobre-split">
+        <div class="sobre-texto">
+          <span class="sec-label">Quem somos</span>
+          <h2>Rios e Pessetti Advogados</h2>
+          <p>Somos um escritório de advocacia full-service localizado em Francisco Beltrão, Paraná. Nossa equipe reúne profissionais especializados nas principais áreas do direito, comprometidos com a defesa dos interesses de cada cliente.</p>
+          <p>Acreditamos que o acesso à justiça começa pelo atendimento humanizado. Por isso, explicamos cada etapa do processo de forma clara, sem jargões, e construímos estratégias com base na realidade de cada caso.</p>
+          <a href="/sobre.html" class="btn btn-outline-gold">Conhecer o escritório &rsaquo;</a>
+        </div>
+        <div class="sobre-img">
+          <div class="sobre-img-placeholder">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" style="width:44px;height:44px;opacity:0.25;">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
+            </svg>
+            <span>Foto da equipe</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="sec-light" style="border-top: 1px solid var(--lt-line);">
+  <!-- AREAS DE ATUACAO -->
+  <section style="border-top: 1px solid var(--line-md);">
     <div class="container">
       <div class="sec-head">
-        <h2>Areas de Atuacao</h2>
-        <p>Atendimento completo nas principais demandas juridicas de pessoas fisicas e empresas.</p>
+        <span class="sec-label">O que fazemos</span>
+        <h2>Áreas de atuação</h2>
       </div>
       <div class="areas-grid">
         <div class="area-card">
           <span class="area-num">01</span>
-          <h3>Direito Civel</h3>
-          <p>Contratos, responsabilidade civil, familia, herancas, inventarios e acoes de cobranca.</p>
+          <h3>Direito Cível</h3>
+          <p>Contratos, família, inventários, cobranças, usucapião e disputas patrimoniais. Da fase extrajudicial às instâncias superiores.</p>
         </div>
         <div class="area-card">
           <span class="area-num">02</span>
           <h3>Direito Criminal</h3>
-          <p>Defesa em inquerito policial e processo penal, habeas corpus e medidas cautelares.</p>
+          <p>Defesa técnica em todas as fases: inquérito, instrução, julgamento e recursos. Habeas corpus e medidas cautelares.</p>
         </div>
         <div class="area-card">
           <span class="area-num">03</span>
-          <h3>Direito Bancario</h3>
-          <p>Revisao de contratos, superendividamento e defesa do consumidor bancario.</p>
+          <h3>Direito Bancário</h3>
+          <p>Revisão de contratos, redução de encargos abusivos, superendividamento e defesa em busca e apreensão de veículos.</p>
         </div>
         <div class="area-card">
           <span class="area-num">04</span>
           <h3>Direito Trabalhista</h3>
-          <p>Reclamacoes trabalhistas, horas extras, rescisao indireta e verbas rescisorias.</p>
+          <p>Verbas rescisórias, horas extras, assédio moral, equiparação salarial e rescisão indireta.</p>
         </div>
         <div class="area-card">
           <span class="area-num">05</span>
-          <h3>Direito Previdenciario</h3>
-          <p>Aposentadoria, BPC/LOAS, auxilio por incapacidade e revisoes de beneficios do INSS.</p>
+          <h3>Direito Previdenciário</h3>
+          <p>Aposentadorias, auxílio por incapacidade, BPC/LOAS, pensão por morte e revisão de benefícios do INSS.</p>
         </div>
         <div class="area-card">
           <span class="area-num">06</span>
-          <h3>Assessoria Juridica</h3>
-          <p>Consultoria preventiva, analise de contratos e pareceres para pessoas fisicas e empresas.</p>
+          <h3>Assessoria Jurídica</h3>
+          <p>Consultoria preventiva, elaboração de contratos, pareceres e análise de riscos para pessoas e empresas.</p>
         </div>
+      </div>
+      <div style="margin-top: 2.5rem;">
+        <a href="/areas.html" class="btn btn-outline-gold">Ver todas as áreas &rsaquo;</a>
       </div>
     </div>
   </section>
 
+  <!-- DEPOIMENTOS -->
   <section style="border-top: 1px solid var(--line-md);">
     <div class="container">
-      <div class="sec-head" style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:1rem;">
-        <div>
-          <h2>Artigos Juridicos</h2>
-          <p>Conteudo elaborado pela nossa equipe para orientar sobre seus direitos.</p>
-        </div>
-        <a href="/blog/" class="btn btn-outline" style="flex-shrink:0; margin-bottom:0;">Ver todos</a>
+      <div class="sec-head centrado">
+        <span class="sec-label">Quem confia no nosso trabalho</span>
+        <h2>Depoimentos de clientes</h2>
+        <p style="margin: 0.75rem auto 0;">Relatos de pessoas que confiaram em nossa equipe.</p>
       </div>
-      <div class="blog-grid" id="posts-home"></div>
+      <div class="depo-grid">
+        <div class="depo-card">
+          <div class="depo-header">
+            <div class="depo-avatar">M</div>
+            <div>
+              <div class="depo-nome">M. Aparecida</div>
+              <div class="depo-via">Via Google</div>
+            </div>
+          </div>
+          <p class="depo-texto">Profissionais extremamente competentes e atenciosos. Resolveram meu caso previdenciário com agilidade e me mantiveram informada em cada etapa do processo.</p>
+          <div class="depo-estrelas">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+        </div>
+        <div class="depo-card">
+          <div class="depo-header">
+            <div class="depo-avatar">R</div>
+            <div>
+              <div class="depo-nome">R. Oliveira</div>
+              <div class="depo-via">Via Google</div>
+            </div>
+          </div>
+          <p class="depo-texto">Excelente escritório. Fui muito bem atendido na ação trabalhista. Equipe séria, que entende do assunto e trata o cliente com respeito e clareza.</p>
+          <div class="depo-estrelas">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+        </div>
+        <div class="depo-card">
+          <div class="depo-header">
+            <div class="depo-avatar">C</div>
+            <div>
+              <div class="depo-nome">C. Ferreira</div>
+              <div class="depo-via">Via Google</div>
+            </div>
+          </div>
+          <p class="depo-texto">Me ajudaram a sair de uma situação muito difícil com um banco. Explicaram tudo de forma clara, sem enrolação. Recomendo sem hesitar.</p>
+          <div class="depo-estrelas">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="cta-banner">
+  <!-- FAQ -->
+  <section style="border-top: 1px solid var(--line-md);">
     <div class="container">
-      <h2>Precisando de orientacao juridica?</h2>
-      <p>Nossa equipe esta pronta para analisar o seu caso com atencao e responsabilidade.</p>
-      <a href="/contato.html" class="btn btn-primario">Entrar em contato</a>
+      <div class="faq-grid">
+        <div class="faq-titulo">
+          <span class="sec-label">FAQ</span>
+          <h2>Ficou com alguma dúvida?</h2>
+          <p>Confira as perguntas mais frequentes e tire suas dúvidas.</p>
+        </div>
+        <div class="faq-lista">
+          <div class="faq-item">
+            <button class="faq-pergunta" aria-expanded="false">
+              <span class="faq-pergunta-num">01.</span>
+              <span class="faq-pergunta-texto">Como funciona a primeira consulta?</span>
+              <span class="faq-icone">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" style="width:11px;height:11px;"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+              </span>
+            </button>
+            <div class="faq-resposta">
+              <div class="faq-resposta-inner">A primeira consulta é o momento em que você apresenta seu caso e recebe uma orientação inicial sobre as possibilidades jurídicas. Entre em contato pelo WhatsApp ou formulário e agendamos um horário conveniente.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-pergunta" aria-expanded="false">
+              <span class="faq-pergunta-num">02.</span>
+              <span class="faq-pergunta-texto">O escritório atende fora de Francisco Beltrão?</span>
+              <span class="faq-icone">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" style="width:11px;height:11px;"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+              </span>
+            </button>
+            <div class="faq-resposta">
+              <div class="faq-resposta-inner">Sim. Atuamos em todo o estado do Paraná e em questões de âmbito federal em todo o Brasil. Para casos fora de Francisco Beltrão, o atendimento pode ser feito de forma remota.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-pergunta" aria-expanded="false">
+              <span class="faq-pergunta-num">03.</span>
+              <span class="faq-pergunta-texto">Quais são os honorários do escritório?</span>
+              <span class="faq-icone">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" style="width:11px;height:11px;"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+              </span>
+            </button>
+            <div class="faq-resposta">
+              <div class="faq-resposta-inner">Os honorários variam conforme o tipo e a complexidade do caso. Trabalhamos com transparência total: apresentamos o valor antes de qualquer compromisso, sem cobranças surpresa.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-pergunta" aria-expanded="false">
+              <span class="faq-pergunta-num">04.</span>
+              <span class="faq-pergunta-texto">Quanto tempo leva um processo judicial?</span>
+              <span class="faq-icone">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" style="width:11px;height:11px;"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+              </span>
+            </button>
+            <div class="faq-resposta">
+              <div class="faq-resposta-inner">O prazo depende da área e da complexidade do caso. Questões trabalhistas simples podem se resolver em alguns meses; processos cíveis ou previdenciários podem levar mais tempo. Sempre informamos uma estimativa realista no início.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-pergunta" aria-expanded="false">
+              <span class="faq-pergunta-num">05.</span>
+              <span class="faq-pergunta-texto">Posso resolver meu caso sem ir ao escritório?</span>
+              <span class="faq-icone">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" style="width:11px;height:11px;"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+              </span>
+            </button>
+            <div class="faq-resposta">
+              <div class="faq-resposta-inner">Sim. Oferecemos atendimento remoto via videoconferência e WhatsApp. Documentos podem ser enviados digitalmente. Para quem prefere o presencial, nossa sede fica no centro de Francisco Beltrão.</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- CTA CENTRAL -->
+  <div class="cta-central">
+    <div class="container">
+      <span class="sec-label" style="display:block;text-align:center;">Não perca tempo</span>
+      <h2>Vamos resolver o seu caso?</h2>
+      <p>Entre em contato e nossa equipe avalia sua situação sem compromisso.</p>
+      <a href="/contato.html" class="btn btn-gold">Falar com um advogado &rsaquo;</a>
+    </div>
+  </div>
+
+  <!-- FOOTER MINIMAL -->
   <footer>
     <div class="container">
-      <div class="footer-top">
-        <div class="footer-marca">
-          <div class="footer-marca-logo">
-            <img src="/images/logo.png" alt="Rios e Pessetti Advogados" />
-          </div>
-          <p>Escritorio de advocacia full-service com atuacao nas principais areas do direito. Seriedade, tecnica e atendimento humanizado.</p>
-          <div class="footer-marca-cidade">Francisco Beltrao, Parana</div>
+      <div class="footer-minimal">
+        <div>
+          <div class="footer-minimal-nome">Rios e Pessetti Advogados</div>
+          <div class="footer-minimal-copy">2025 &copy; Todos os direitos reservados &nbsp;&middot;&nbsp; OAB/PR 81.328 &middot; OAB/PR 36.084</div>
+        </div>
+        <div class="footer-minimal-dir">
+          <button class="footer-topo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+            Voltar ao topo
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" /></svg>
+          </button>
           <div class="footer-social">
             <a href="https://www.instagram.com/riosepessettiadvogados/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                <circle cx="12" cy="12" r="4"/>
-                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
-              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
             </a>
           </div>
         </div>
-
-        <div class="footer-col">
-          <h4>Paginas</h4>
-          <ul>
-            <li><a href="/">Inicio</a></li>
-            <li><a href="/areas.html">Areas de Atuacao</a></li>
-            <li><a href="/sobre.html">Sobre o Escritorio</a></li>
-            <li><a href="/blog/">Blog Juridico</a></li>
-            <li><a href="/contato.html">Contato</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Contato</h4>
-          <ul>
-            <li><a href="tel:+554626011530">(46) 2601-1530</a></li>
-            <li><span>Av. Antonio de Paiva Cantelmo, 583<br>1&ordm; Andar, Centro<br>Francisco Beltrao, PR<br>CEP 85601-005</span></li>
-            <li><span>Seg. a Sex. das 8h30 as 18h</span></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>&copy; 2025 Rios e Pessetti Advogados. Todos os direitos reservados.</p>
-        <span class="footer-bottom-oab">OAB/PR 81.328 &middot; OAB/PR 36.084</span>
       </div>
     </div>
   </footer>
 
+  <a href="https://wa.me/554626011530?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta." class="btn-wpp" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
   <script src="/js/main.js"></script>
-  <script>
-    fetch('/blog/posts.json')
-      .then(r => r.json())
-      .then(posts => {
-        const el = document.getElementById('posts-home');
-        const lista = posts.slice(0, 3);
-        if (!lista.length) {
-          el.innerHTML = '<p class="vazio">Em breve, novos artigos da nossa equipe.</p>';
-          return;
-        }
-        el.innerHTML = lista.map(p => `
-          <a href="/blog/posts/${p.slug}.html" class="post-card">
-            <span class="post-data">${p.data}</span>
-            <h3>${p.titulo}</h3>
-            <p>${p.resumo}</p>
-            <span class="post-link">Ler artigo &rarr;</span>
-          </a>`).join('');
-      })
-      .catch(() => {
-        document.getElementById('posts-home').innerHTML =
-          '<p class="vazio">Em breve, novos artigos da nossa equipe.</p>';
-      });
-  </script>
 </body>
 </html>
