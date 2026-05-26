@@ -2,6 +2,7 @@
 const https = require('https');
 const fs    = require('fs');
 const path  = require('path');
+const { execSync } = require('child_process');
 
 if (!process.env.GROQ_API_KEY) {
   console.error('Erro: variavel GROQ_API_KEY nao definida.');
@@ -257,7 +258,7 @@ REGRAS:
 Retorne SOMENTE um JSON valido com estes campos (sem texto antes ou depois, sem markdown):
 {
   "titulo": "titulo do artigo",
-  "resumo": "resumo em uma frase de ate 130 caracteres",
+  "resumo": "resumo completo e informativo do artigo em uma frase entre 140 e 180 caracteres, explicando o que o leitor vai aprender. OBRIGATORIO: o resumo deve ter no minimo 140 caracteres",
   "conteudo_html": "conteudo HTML usando apenas p, h2, h3, ul, ol, li, strong. Sem html, head, body ou qualquer tag estrutural."
 }`;
 
@@ -313,6 +314,16 @@ Retorne SOMENTE um JSON valido com estes campos (sem texto antes ou depois, sem 
   console.log(`Artigo gerado com sucesso: "${titulo}"`);
   console.log(`Arquivo: ${slug}.html`);
   console.log(`RSS atualizado: rss.xml`);
+
+  const ROOT = path.join(__dirname, '..');
+  try {
+    execSync('git add public/blog/posts/ public/blog/posts.json public/rss.xml', { cwd: ROOT, stdio: 'inherit' });
+    execSync(`git commit -m "blog: ${titulo}"`, { cwd: ROOT, stdio: 'inherit' });
+    execSync('git push', { cwd: ROOT, stdio: 'inherit' });
+    console.log('Push concluido. Netlify vai atualizar em instantes.');
+  } catch (e) {
+    console.error('Erro no push:', e.message);
+  }
 }
 
 main();
