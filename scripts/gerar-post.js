@@ -317,6 +317,7 @@ Retorne SOMENTE um JSON valido com estes campos (sem texto antes ou depois, sem 
 
   const ROOT = path.join(__dirname, '..');
   try {
+    execSync('git pull --rebase', { cwd: ROOT, stdio: 'inherit' });
     execSync('git add public/blog/posts/ public/blog/posts.json public/rss.xml', { cwd: ROOT, stdio: 'inherit' });
     execSync(`git commit -m "blog: ${titulo}"`, { cwd: ROOT, stdio: 'inherit' });
     execSync('git push', { cwd: ROOT, stdio: 'inherit' });
