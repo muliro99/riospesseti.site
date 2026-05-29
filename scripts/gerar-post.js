@@ -162,6 +162,7 @@ function gerarHTMLPost(titulo, dataFormatada, conteudoHTML) {
             <span></span><span></span><span></span>
           </button>
         </div>
+
       </nav>
     </div>
     <div class="nav-mobile" id="nav-mobile">
