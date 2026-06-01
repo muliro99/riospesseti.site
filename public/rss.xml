@@ -6,7 +6,14 @@
     <atom:link href="https://riosepessetti.adv.br/rss.xml" rel="self" type="application/rss+xml" />
     <description>Artigos juridicos sobre direito do consumidor, previdenciario, trabalhista e familiar.</description>
     <language>pt-BR</language>
-    <lastBuildDate>Fri, 29 May 2026 16:33:40 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 01 Jun 2026 18:32:29 GMT</lastBuildDate>
+    <item>
+      <title><![CDATA[Acidente de Trabalho: Direitos do Trabalhador e Obrigacoes do Empregador]]></title>
+      <link>https://riosepessetti.adv.br/blog/posts/acidente-de-trabalho-direitos-do-trabalhador-e-obrigacoes-do-empregado-20260601</link>
+      <guid isPermaLink="true">https://riosepessetti.adv.br/blog/posts/acidente-de-trabalho-direitos-do-trabalhador-e-obrigacoes-do-empregado-20260601</guid>
+      <description><![CDATA[Aprenda sobre os direitos dos trabalhadores e as obrigações dos empregadores em caso de acidente de trabalho, incluindo benefícios, responsabilidades e procedimentos legais para garantir a justiça e a segurança no local de trabalho]]></description>
+      <pubDate>Mon, 01 Jun 2026 18:32:26 GMT</pubDate>
+    </item>
     <item>
       <title><![CDATA[Demissão Sem Justa Causa: Quais Verbas Rescisórias Você Tem Direito]]></title>
       <link>https://riosepessetti.adv.br/blog/posts/demissao-sem-justa-causa-quais-verbas-rescisorias-voce-tem-direito-20260529</link>
@@ -54,7 +61,7 @@
       <link>https://riosepessetti.adv.br/blog/posts/exemplo-direito-previdenciario</link>
       <guid isPermaLink="true">https://riosepessetti.adv.br/blog/posts/exemplo-direito-previdenciario</guid>
       <description><![CDATA[Entenda os requisitos, o processo de solicitacao e os direitos de quem precisa do beneficio junto ao INSS.]]></description>
-      <pubDate>Fri, 29 May 2026 16:33:40 GMT</pubDate>
+      <pubDate>Mon, 01 Jun 2026 18:32:29 GMT</pubDate>
     </item>
   </channel>
 </rss>
