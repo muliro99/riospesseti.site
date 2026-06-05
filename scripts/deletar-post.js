@@ -12,6 +12,9 @@ const POSTS_JSON = path.join(ROOT, 'public', 'blog', 'posts.json');
 const RSS_PATH  = path.join(ROOT, 'public', 'rss.xml');
 const SITE_URL  = 'https://riosepessetti.adv.br';
 
+// Pull antes de qualquer modificacao para evitar conflito de rebase
+execSync('git pull --rebase', { cwd: ROOT, stdio: 'inherit' });
+
 const postFile = path.join(POSTS_DIR, `${slug}.html`);
 
 if (!fs.existsSync(postFile)) {
@@ -52,7 +55,6 @@ fs.writeFileSync(RSS_PATH, rss, 'utf8');
 console.log(`Deletando: "${titulo}"`);
 
 try {
-  execSync('git pull --rebase', { cwd: ROOT, stdio: 'inherit' });
   execSync(`git add public/blog/posts/${slug}.html public/blog/posts.json public/rss.xml`, { cwd: ROOT, stdio: 'inherit' });
   execSync(`git commit -m "remover: ${titulo}"`, { cwd: ROOT, stdio: 'inherit' });
   execSync('git push', { cwd: ROOT, stdio: 'inherit' });
