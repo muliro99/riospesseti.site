@@ -139,7 +139,7 @@ function gerarHTMLPost(titulo, dataFormatada, conteudoHTML) {
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="image" href="/images/logo-horizontal.png" fetchpriority="high" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
@@ -148,15 +148,15 @@ function gerarHTMLPost(titulo, dataFormatada, conteudoHTML) {
       <nav>
         <ul class="nav-esq">
           <li><a href="/">Início</a></li>
-          <li><a href="/areas.html">Áreas</a></li>
-          <li><a href="/sobre.html">Sobre</a></li>
+          <li><a href="/areas">Áreas</a></li>
+          <li><a href="/sobre">Sobre</a></li>
         </ul>
         <a href="/" class="nav-logo" aria-label="Rios e Pessetti Advogados"><img src="/images/logo-horizontal.png" alt="Rios e Pessetti Advogados" width="695" height="359" fetchpriority="high" />
         </a>
         <div class="nav-dir">
           <ul class="nav-dir-links">
             <li><a href="/blog/">Blog</a></li>
-            <li><a href="/contato.html" class="nav-cta">Contato</a></li>
+            <li><a href="/contato" class="nav-cta">Contato</a></li>
           </ul>
           <button class="nav-toggle" aria-label="Menu">
             <span></span><span></span><span></span>
@@ -169,10 +169,10 @@ function gerarHTMLPost(titulo, dataFormatada, conteudoHTML) {
       <div class="container">
         <ul>
           <li><a href="/">Início</a></li>
-          <li><a href="/areas.html">Áreas de Atuação</a></li>
-          <li><a href="/sobre.html">Sobre</a></li>
+          <li><a href="/areas">Áreas de Atuação</a></li>
+          <li><a href="/sobre">Sobre</a></li>
           <li><a href="/blog/">Blog</a></li>
-          <li><a href="/contato.html">Contato</a></li>
+          <li><a href="/contato">Contato</a></li>
         </ul>
       </div>
     </div>
@@ -187,7 +187,7 @@ ${conteudoHTML}
     </div>
     <div style="margin-top:3.5rem;padding-top:2rem;border-top:1px solid var(--line-md);">
       <p style="font-size:0.875rem;margin-bottom:1.25rem;">Precisa de orientação sobre esse tema?</p>
-      <a href="/contato.html" class="btn btn-primario">Falar com um advogado</a>
+      <a href="/contato" class="btn btn-primario">Falar com um advogado</a>
     </div>
   </div>
 
@@ -196,7 +196,7 @@ ${conteudoHTML}
       <div class="footer-top">
         <div class="footer-marca">
           <div class="footer-marca-logo"><img src="/images/logo.png" alt="Rios e Pessetti Advogados" width="320" height="320" fetchpriority="high" /></div>
-          <p>Escritório de advocacia full-service com atuação nas principais áreas do direito. Seriedade, técnica e atendimento humanizado.</p>
+          <p>Escritório de advocacia com atuação nas principais áreas do direito. Seriedade, técnica e atendimento humanizado.</p>
           <div class="footer-marca-cidade">Francisco Beltrão, Paraná</div>
           <div class="footer-social">
             <a href="https://www.instagram.com/riosepessettiadvogados/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">${ig}</a>
@@ -206,10 +206,10 @@ ${conteudoHTML}
           <h4>Páginas</h4>
           <ul>
             <li><a href="/">Início</a></li>
-            <li><a href="/areas.html">Áreas de Atuação</a></li>
-            <li><a href="/sobre.html">Sobre o Escritório</a></li>
+            <li><a href="/areas">Áreas de Atuação</a></li>
+            <li><a href="/sobre">Sobre o Escritório</a></li>
             <li><a href="/blog/">Blog Jurídico</a></li>
-            <li><a href="/contato.html">Contato</a></li>
+            <li><a href="/contato">Contato</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -222,7 +222,7 @@ ${conteudoHTML}
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 Rios e Pessetti Advogados. Todos os direitos reservados.</p>
+        <p>&copy; 2026 Rios e Pessetti Advogados. Todos os direitos reservados.</p>
         <span class="footer-bottom-oab">OAB/PR 81.328 &middot; OAB/PR 36.084</span>
       </div>
     </div>

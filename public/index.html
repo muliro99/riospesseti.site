@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="image" href="/images/logo-horizontal.png" fetchpriority="high" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
@@ -19,8 +19,8 @@
       <nav>
         <ul class="nav-esq">
           <li><a href="/">Início</a></li>
-          <li><a href="/areas.html">Áreas</a></li>
-          <li><a href="/sobre.html">Sobre</a></li>
+          <li><a href="/areas">Áreas</a></li>
+          <li><a href="/sobre">Sobre</a></li>
         </ul>
         <a href="/" class="nav-logo" aria-label="Rios e Pessetti Advogados">
           <img src="/images/logo-horizontal.png" alt="Rios e Pessetti Advogados" width="695" height="359" fetchpriority="high" />
@@ -28,7 +28,7 @@
         <div class="nav-dir">
           <ul class="nav-dir-links">
             <li><a href="/blog/">Blog</a></li>
-            <li><a href="/contato.html" class="nav-cta">Contato</a></li>
+            <li><a href="/contato" class="nav-cta">Contato</a></li>
           </ul>
           <button class="nav-toggle" aria-label="Menu">
             <span></span><span></span><span></span>
@@ -40,10 +40,10 @@
       <div class="container">
         <ul>
           <li><a href="/">Início</a></li>
-          <li><a href="/areas.html">Áreas de Atuação</a></li>
-          <li><a href="/sobre.html">Sobre</a></li>
+          <li><a href="/areas">Áreas de Atuação</a></li>
+          <li><a href="/sobre">Sobre</a></li>
           <li><a href="/blog/">Blog</a></li>
-          <li><a href="/contato.html">Contato</a></li>
+          <li><a href="/contato">Contato</a></li>
         </ul>
       </div>
     </div>
@@ -56,8 +56,8 @@
       <h1>Advocacia com seriedade e dedicação técnica</h1>
       <p class="hero-sub">Representamos pessoas e empresas nas principais áreas do direito, com atendimento humanizado e rigor técnico em cada caso.</p>
       <div class="hero-acoes">
-        <a href="/contato.html" class="btn btn-gold">Falar com um advogado &rsaquo;</a>
-        <a href="/areas.html" class="btn btn-outline-gold">Nossas áreas</a>
+        <a href="/contato" class="btn btn-gold">Falar com um advogado &rsaquo;</a>
+        <a href="/areas" class="btn btn-outline-gold">Nossas áreas</a>
       </div>
     </div>
     <div class="hero-foto">
@@ -72,58 +72,73 @@
     </div>
   </div>
 
-  <!-- FAIXA DE CREDENCIAIS -->
-  <div class="credenciais-faixa">
+  <!-- NOSSA HISTORIA -->
+  <section class="sec-light">
     <div class="container">
-      <div class="credenciais-lista">
-        <div class="credencial-item">
-          <span class="credencial-num">6</span>
-          <span class="credencial-desc">Áreas de atuação</span>
+      <div class="historia-grid">
+        <div>
+          <span class="sec-label">Nossa história</span>
+          <h2>Nossa trajetória</h2>
         </div>
-        <div class="credencial-sep"></div>
-        <div class="credencial-item">
-          <span class="credencial-num">OAB/PR</span>
-          <span class="credencial-desc">Inscritos e habilitados</span>
-        </div>
-        <div class="credencial-sep"></div>
-        <div class="credencial-item">
-          <span class="credencial-num">PR</span>
-          <span class="credencial-desc">Atuação em todo o Paraná</span>
-        </div>
-        <div class="credencial-sep"></div>
-        <div class="credencial-item">
-          <span class="credencial-num">100%</span>
-          <span class="credencial-desc">Dedicação ao cliente</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SOBRE O ESCRITORIO -->
-  <section style="border-top: 1px solid var(--line-md);">
-    <div class="container">
-      <div class="sobre-split">
-        <div class="sobre-texto">
-          <span class="sec-label">Quem somos</span>
-          <h2>Rios e Pessetti Advogados</h2>
-          <p>Somos um escritório de advocacia localizado em Francisco Beltrão, Paraná. Nossa equipe reúne profissionais nas principais áreas do direito, comprometidos com a defesa dos interesses de cada cliente.</p>
-          <p>Acreditamos que o acesso à justiça começa pelo atendimento humanizado. Por isso, explicamos cada etapa do processo de forma clara, sem jargões, e construímos estratégias com base na realidade de cada caso.</p>
-          <a href="/sobre.html" class="btn btn-outline-gold">Conhecer o escritório &rsaquo;</a>
-        </div>
-        <div class="sobre-img">
-          <div class="sobre-img-placeholder">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" style="width:44px;height:44px;opacity:0.25;">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
-            </svg>
-            <span>Foto da equipe</span>
-          </div>
+        <div>
+          <p>Fundado pelos advogados Dr. Giovani Marcelo Rios e Dr. Felipe Pessetti Gonçalves, o escritório nasceu do compromisso de oferecer assistência jurídica de qualidade com atendimento humano e acessível para os cidadãos de Francisco Beltrão e região.</p>
+          <p>Com o crescimento da demanda e a confiança construída ao longo dos anos, a equipe se expandiu com profissionais especializados nas diferentes áreas do direito, mantendo o mesmo padrão de atenção ao cliente e rigor técnico.</p>
+          <p>Hoje o escritório atua nas áreas Cível, Criminal, Bancária, Trabalhista, Previdenciária e Assessoria Jurídica Geral, com representação completa em processos judiciais e extrajudiciais.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- NOSSA EQUIPE -->
+  <section class="sec-light">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-label">Quem nos representa</span>
+        <h2>Nossa equipe</h2>
+        <p>Profissionais comprometidos com a defesa dos seus direitos.</p>
+      </div>
+      <div class="perfil-grid">
+        <div class="perfil-card">
+          <div class="perfil-foto"><span class="perfil-iniciais">FP</span></div>
+          <div class="perfil-info">
+            <h4>Dr. Felipe Pessetti Gonçalves</h4>
+            <span class="perfil-oab">OAB/PR 81.328</span>
+            <span class="perfil-cargo">Sócio-fundador</span>
+          </div>
+        </div>
+        <div class="perfil-card">
+          <div class="perfil-foto"><span class="perfil-iniciais">GR</span></div>
+          <div class="perfil-info">
+            <h4>Dr. Giovani Marcelo Rios</h4>
+            <span class="perfil-oab">OAB/PR 36.084</span>
+            <span class="perfil-cargo">Sócio-fundador</span>
+          </div>
+        </div>
+        <div class="perfil-card">
+          <div class="perfil-foto"><span class="perfil-iniciais">IT</span></div>
+          <div class="perfil-info">
+            <h4>Dr. Igor Gustavo Tognon</h4>
+            <span class="perfil-oab">OAB/PR 126.196</span>
+            <span class="perfil-cargo">Advogado</span>
+          </div>
+        </div>
+        <div class="perfil-card">
+          <div class="perfil-foto"><span class="perfil-iniciais">HV</span></div>
+          <div class="perfil-info">
+            <h4>Dra. Helena Venso</h4>
+            <span class="perfil-oab">OAB/PR 96.305</span>
+            <span class="perfil-cargo">Advogada</span>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: 2.5rem;">
+        <a href="/sobre" class="btn btn-outline-gold">Conhecer o escritório &rsaquo;</a>
+      </div>
+    </div>
+  </section>
+
   <!-- AREAS DE ATUACAO -->
-  <section style="border-top: 1px solid var(--line-md);">
+  <section class="sec-light">
     <div class="container">
       <div class="sec-head">
         <span class="sec-label">O que fazemos</span>
@@ -162,13 +177,13 @@
         </div>
       </div>
       <div style="margin-top: 2.5rem;">
-        <a href="/areas.html" class="btn btn-outline-gold">Ver todas as áreas &rsaquo;</a>
+        <a href="/areas" class="btn btn-outline-gold">Ver todas as áreas &rsaquo;</a>
       </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section style="border-top: 1px solid var(--line-md);">
+  <section class="sec-light">
     <div class="container">
       <div class="faq-grid">
         <div class="faq-titulo">
@@ -242,13 +257,74 @@
     </div>
   </section>
 
+  <!-- DEPOIMENTOS -->
+  <section class="sec-light">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-label">O que dizem nossos clientes</span>
+        <h2>Depoimentos</h2>
+      </div>
+      <div class="depo-grid">
+        <div class="depo-card">
+          <div class="depo-header">
+            <div class="depo-avatar">M</div>
+            <div>
+              <div class="depo-nome">Marcos A.</div>
+              <div class="depo-via">Cliente — Trabalhista</div>
+            </div>
+          </div>
+          <p class="depo-texto">Fui demitido sem receber o que era devido. O escritório cuidou de tudo com clareza e dedicação. Me senti amparado em cada etapa do processo.</p>
+          <div class="depo-estrelas"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        </div>
+        <div class="depo-card">
+          <div class="depo-header">
+            <div class="depo-avatar">C</div>
+            <div>
+              <div class="depo-nome">Cleide R.</div>
+              <div class="depo-via">Cliente — Previdenciário</div>
+            </div>
+          </div>
+          <p class="depo-texto">Minha aposentadoria havia sido negada pelo INSS há meses. Após o acompanhamento do escritório, consegui o benefício. Atendimento humano e muito competente.</p>
+          <div class="depo-estrelas"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        </div>
+        <div class="depo-card">
+          <div class="depo-header">
+            <div class="depo-avatar">R</div>
+            <div>
+              <div class="depo-nome">Roberto S.</div>
+              <div class="depo-via">Cliente — Bancário</div>
+            </div>
+          </div>
+          <p class="depo-texto">Tinha uma dívida com juros abusivos no cartão e não sabia o que fazer. O escritório revisou o contrato e conseguiu uma redução significativa. Recomendo.</p>
+          <div class="depo-estrelas"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG PREVIEW -->
+  <section id="blog-preview" class="sec-light">
+    <div class="container">
+      <div class="sec-head" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <div>
+          <span class="sec-label">Conteúdo jurídico</span>
+          <h2 style="margin-bottom:0;">Blog</h2>
+        </div>
+        <a href="/blog/" class="btn btn-outline-gold" style="flex-shrink:0;">Ver todos os artigos &rsaquo;</a>
+      </div>
+      <div class="blog-grid" id="blog-preview-lista">
+        <p class="vazio" style="padding:2rem 0;">Carregando artigos...</p>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA CENTRAL -->
   <div class="cta-central">
     <div class="container">
       <span class="sec-label" style="display:block;text-align:center;">Entre em contato</span>
       <h2>Fale com nossa equipe</h2>
       <p>Entre em contato e nossa equipe orienta você sobre os caminhos jurídicos disponíveis para o seu caso.</p>
-      <a href="/contato.html" class="btn btn-gold">Falar com um advogado &rsaquo;</a>
+      <a href="/contato" class="btn btn-gold">Falar com um advogado &rsaquo;</a>
     </div>
   </div>
 
@@ -258,7 +334,7 @@
       <div class="footer-minimal">
         <div>
           <div class="footer-minimal-nome">Rios e Pessetti Advogados</div>
-          <div class="footer-minimal-copy">2025 &copy; Todos os direitos reservados &nbsp;&middot;&nbsp; OAB/PR 81.328 &middot; OAB/PR 36.084</div>
+          <div class="footer-minimal-copy">2026 &copy; Todos os direitos reservados &nbsp;&middot;&nbsp; OAB/PR 81.328 &middot; OAB/PR 36.084</div>
         </div>
         <div class="footer-minimal-dir">
           <button class="footer-topo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
@@ -280,5 +356,21 @@
   </a>
 
   <script src="/js/main.js"></script>
+  <script>
+    fetch('/blog/posts.json')
+      .then(r => r.json())
+      .then(posts => {
+        const el = document.getElementById('blog-preview-lista');
+        if (!posts || !posts.length) { el.innerHTML = '<p class="vazio">Em breve, novos artigos.</p>'; return; }
+        el.innerHTML = posts.slice(0, 3).map(p => `
+          <a href="/blog/posts/${p.slug}" class="post-card">
+            <span class="post-data">${p.data}</span>
+            <h3>${p.titulo}</h3>
+            <p>${p.resumo}</p>
+            <span class="post-link">Ler artigo &rarr;</span>
+          </a>`).join('');
+      })
+      .catch(() => { document.getElementById('blog-preview-lista').innerHTML = '<p class="vazio">Em breve, novos artigos.</p>'; });
+  </script>
 </body>
 </html>

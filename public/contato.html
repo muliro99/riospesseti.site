@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="image" href="/images/logo-horizontal.png" fetchpriority="high" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
@@ -18,15 +18,15 @@
       <nav>
         <ul class="nav-esq">
           <li><a href="/">Início</a></li>
-          <li><a href="/areas.html">Áreas</a></li>
-          <li><a href="/sobre.html">Sobre</a></li>
+          <li><a href="/areas">Áreas</a></li>
+          <li><a href="/sobre">Sobre</a></li>
         </ul>
         <a href="/" class="nav-logo" aria-label="Rios e Pessetti Advogados"><img src="/images/logo-horizontal.png" alt="Rios e Pessetti Advogados" width="695" height="359" fetchpriority="high" />
         </a>
         <div class="nav-dir">
           <ul class="nav-dir-links">
             <li><a href="/blog/">Blog</a></li>
-            <li><a href="/contato.html" class="nav-cta">Contato</a></li>
+            <li><a href="/contato" class="nav-cta">Contato</a></li>
           </ul>
           <button class="nav-toggle" aria-label="Menu">
             <span></span><span></span><span></span>
@@ -38,10 +38,10 @@
       <div class="container">
         <ul>
           <li><a href="/">Início</a></li>
-          <li><a href="/areas.html">Áreas de Atuação</a></li>
-          <li><a href="/sobre.html">Sobre</a></li>
+          <li><a href="/areas">Áreas de Atuação</a></li>
+          <li><a href="/sobre">Sobre</a></li>
           <li><a href="/blog/">Blog</a></li>
-          <li><a href="/contato.html">Contato</a></li>
+          <li><a href="/contato">Contato</a></li>
         </ul>
       </div>
     </div>
@@ -108,7 +108,9 @@
 
         <div class="formulario">
           <h3>Envie uma mensagem</h3>
-          <form id="form-contato" novalidate>
+          <form id="form-contato" name="contato" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+            <input type="hidden" name="form-name" value="contato" />
+            <p style="display:none;"><label>Não preencha: <input name="bot-field" /></label></p>
             <div class="form-grupo">
               <label for="nome">Nome completo</label>
               <input type="text" id="nome" name="nome" placeholder="Seu nome" required />
@@ -172,10 +174,10 @@
           <h4>Páginas</h4>
           <ul>
             <li><a href="/">Início</a></li>
-            <li><a href="/areas.html">Áreas de Atuação</a></li>
-            <li><a href="/sobre.html">Sobre o Escritório</a></li>
+            <li><a href="/areas">Áreas de Atuação</a></li>
+            <li><a href="/sobre">Sobre o Escritório</a></li>
             <li><a href="/blog/">Blog Jurídico</a></li>
-            <li><a href="/contato.html">Contato</a></li>
+            <li><a href="/contato">Contato</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -187,7 +189,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 Rios e Pessetti Advogados. Todos os direitos reservados.</p>
+        <p>&copy; 2026 Rios e Pessetti Advogados. Todos os direitos reservados.</p>
         <span class="footer-bottom-oab">OAB/PR 81.328 &middot; OAB/PR 36.084</span>
       </div>
     </div>
@@ -203,8 +205,21 @@
   <script>
     document.getElementById('form-contato').addEventListener('submit', function(e) {
       e.preventDefault();
-      this.style.display = 'none';
-      document.getElementById('form-sucesso').style.display = 'block';
+      const form = this;
+      const btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+      const data = new URLSearchParams(new FormData(form));
+      fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: data })
+        .then(() => {
+          form.style.display = 'none';
+          document.getElementById('form-sucesso').style.display = 'block';
+        })
+        .catch(() => {
+          btn.disabled = false;
+          btn.textContent = 'Enviar mensagem';
+          alert('Erro ao enviar. Tente novamente ou entre em contato pelo WhatsApp.');
+        });
     });
   </script>
 </body>

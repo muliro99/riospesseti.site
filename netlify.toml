@@ -6,3 +6,9 @@
   to = "/:splat"
   status = 301
   force = false
+
+[[redirects]]
+  from = "/blog/posts/*.html"
+  to = "/blog/posts/:splat"
+  status = 301
+  force = false
