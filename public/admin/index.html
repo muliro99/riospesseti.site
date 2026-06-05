@@ -397,7 +397,7 @@
         body: JSON.stringify({ senha: getSenha(), tema }),
       });
       const dados = await r.json();
-      fb.textContent = r.ok ? dados.mensagem : 'Erro: ' + dados.erro;
+      fb.textContent = r.ok ? dados.mensagem : 'Erro: ' + dados.erro + (dados.detalhe ? ' — ' + dados.detalhe : '');
       fb.className = 'feedback ' + (r.ok ? 'ok' : 'erro');
       fb.style.display = 'block';
       if (r.ok) document.getElementById('campo-tema').value = '';
