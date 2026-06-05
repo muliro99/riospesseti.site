@@ -9,8 +9,8 @@ if (!process.env.GROQ_API_KEY) {
   process.exit(1);
 }
 
-const POSTS_DIR  = path.join(__dirname, '..', 'public', 'blog', 'posts');
-const POSTS_JSON = path.join(__dirname, '..', 'public', 'blog', 'posts.json');
+const DRAFTS_DIR  = path.join(__dirname, '..', 'public', 'blog', 'drafts');
+const DRAFTS_JSON = path.join(__dirname, '..', 'public', 'blog', 'drafts.json');
 
 const TEMAS = [
   'como contestar cobranças abusivas em contratos de cartao de credito',
@@ -36,6 +36,7 @@ const TEMAS = [
 ];
 
 function selecionarTema() {
+  if (process.env.TEMA && process.env.TEMA.trim()) return process.env.TEMA.trim();
   const diasDesdeEpoca = Math.floor(Date.now() / 86400000);
   return TEMAS[diasDesdeEpoca % TEMAS.length];
 }
@@ -299,30 +300,26 @@ Retorne SOMENTE um JSON valido com estes campos (sem texto antes ou depois, sem 
   const dataStr = `${hoje.getFullYear()}${String(hoje.getMonth()+1).padStart(2,'0')}${String(hoje.getDate()).padStart(2,'0')}`;
   const slug = `${slugify(titulo)}-${dataStr}`;
 
-  fs.mkdirSync(POSTS_DIR, { recursive: true });
+  fs.mkdirSync(DRAFTS_DIR, { recursive: true });
 
   const htmlPost = gerarHTMLPost(titulo, dataFormatada, conteudo_html);
-  fs.writeFileSync(path.join(POSTS_DIR, `${slug}.html`), htmlPost, 'utf8');
+  fs.writeFileSync(path.join(DRAFTS_DIR, `${slug}.html`), htmlPost, 'utf8');
 
-  let posts = [];
-  try { posts = JSON.parse(fs.readFileSync(POSTS_JSON, 'utf8')); } catch {}
-  posts.unshift({ slug, titulo, data: dataFormatada, resumo, pubDate: hoje.toUTCString() });
-  fs.writeFileSync(POSTS_JSON, JSON.stringify(posts, null, 2), 'utf8');
+  let drafts = [];
+  try { drafts = JSON.parse(fs.readFileSync(DRAFTS_JSON, 'utf8')); } catch {}
+  drafts.unshift({ slug, titulo, data: dataFormatada, resumo, pubDate: hoje.toUTCString() });
+  fs.writeFileSync(DRAFTS_JSON, JSON.stringify(drafts, null, 2), 'utf8');
 
-  const rssPath = path.join(__dirname, '..', 'public', 'rss.xml');
-  fs.writeFileSync(rssPath, gerarRSS(posts), 'utf8');
-
-  console.log(`Artigo gerado com sucesso: "${titulo}"`);
-  console.log(`Arquivo: ${slug}.html`);
-  console.log(`RSS atualizado: rss.xml`);
+  console.log(`Rascunho gerado: "${titulo}"`);
+  console.log(`Arquivo: ${slug}.html — aguardando aprovacao no painel.`);
 
   const ROOT = path.join(__dirname, '..');
   try {
     execSync('git pull --rebase', { cwd: ROOT, stdio: 'inherit' });
-    execSync('git add public/blog/posts/ public/blog/posts.json public/rss.xml', { cwd: ROOT, stdio: 'inherit' });
-    execSync(`git commit -m "blog: ${titulo}"`, { cwd: ROOT, stdio: 'inherit' });
+    execSync('git add public/blog/drafts/ public/blog/drafts.json', { cwd: ROOT, stdio: 'inherit' });
+    execSync(`git commit -m "rascunho: ${titulo}"`, { cwd: ROOT, stdio: 'inherit' });
     execSync('git push', { cwd: ROOT, stdio: 'inherit' });
-    console.log('Push concluido. Netlify vai atualizar em instantes.');
+    console.log('Rascunho salvo no repositorio. Acesse o painel para aprovar.');
   } catch (e) {
     console.error('Erro no push:', e.message);
   }

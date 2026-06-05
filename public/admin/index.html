@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel — Rios e Pessetti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #252E3A;
+      --deep: #1C2530;
+      --surface: #2F3C4E;
+      --surface2: #3B485B;
+      --gold: #A89060;
+      --gold-light: #C4AD82;
+      --text: #D4D8DF;
+      --muted: #8A96A4;
+      --line: rgba(255,255,255,0.08);
+      --danger: #C0392B;
+      --success: #27AE60;
+    }
+
+    body { background: var(--deep); color: var(--text); font-family: 'Inter', sans-serif; font-size: 15px; min-height: 100vh; }
+
+    /* LOGIN */
+    #login-screen {
+      display: flex; align-items: center; justify-content: center;
+      min-height: 100vh; padding: 2rem;
+    }
+    .login-card {
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: 12px; padding: 3rem 2.5rem; width: 100%; max-width: 380px;
+      text-align: center;
+    }
+    .login-titulo { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; color: var(--gold); margin-bottom: 0.25rem; }
+    .login-sub { color: var(--muted); font-size: 0.875rem; margin-bottom: 2rem; }
+    .login-card input {
+      width: 100%; background: var(--bg); border: 1px solid var(--line);
+      border-radius: 8px; color: var(--text); font-family: inherit; font-size: 1rem;
+      padding: 0.75rem 1rem; outline: none; margin-bottom: 1rem;
+      transition: border-color 0.2s;
+    }
+    .login-card input:focus { border-color: var(--gold); }
+    .btn-login {
+      width: 100%; background: var(--gold); border: none; border-radius: 8px;
+      color: var(--deep); cursor: pointer; font-family: inherit; font-size: 0.9rem;
+      font-weight: 600; letter-spacing: 0.04em; padding: 0.85rem;
+      transition: background 0.2s; text-transform: uppercase;
+    }
+    .btn-login:hover { background: var(--gold-light); }
+    .login-erro { color: #e57373; font-size: 0.85rem; margin-top: 0.75rem; display: none; }
+
+    /* APP */
+    #app { display: none; }
+    .header {
+      background: var(--bg); border-bottom: 1px solid var(--line);
+      padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between;
+    }
+    .header-marca { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; color: var(--gold); }
+    .header-sub { font-size: 0.75rem; color: var(--muted); margin-top: 0.1rem; }
+    .btn-sair { background: none; border: 1px solid var(--line); border-radius: 6px; color: var(--muted); cursor: pointer; font-family: inherit; font-size: 0.8rem; padding: 0.4rem 0.85rem; transition: all 0.2s; }
+    .btn-sair:hover { border-color: var(--gold); color: var(--gold); }
+
+    .main { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+    /* STATS */
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem; }
+    .stat-card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 1.25rem 1.5rem; }
+    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--gold); line-height: 1; }
+    .stat-label { color: var(--muted); font-size: 0.8rem; margin-top: 0.35rem; text-transform: uppercase; letter-spacing: 0.04em; }
+
+    /* TABS */
+    .tabs { display: flex; gap: 0.25rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--line); }
+    .tab {
+      background: none; border: none; border-bottom: 2px solid transparent;
+      color: var(--muted); cursor: pointer; font-family: inherit; font-size: 0.9rem;
+      font-weight: 500; margin-bottom: -1px; padding: 0.75rem 1.25rem;
+      transition: all 0.2s;
+    }
+    .tab:hover { color: var(--text); }
+    .tab.ativo { border-bottom-color: var(--gold); color: var(--gold); }
+
+    .tab-panel { display: none; }
+    .tab-panel.ativo { display: block; }
+
+    /* CARDS */
+    .post-lista { display: flex; flex-direction: column; gap: 0.75rem; }
+    .post-item {
+      background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+      padding: 1.25rem 1.5rem; display: flex; align-items: flex-start; gap: 1rem;
+    }
+    .post-item-info { flex: 1; }
+    .post-item-data { color: var(--muted); font-size: 0.78rem; margin-bottom: 0.3rem; text-transform: uppercase; letter-spacing: 0.03em; }
+    .post-item-titulo { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.4rem; }
+    .post-item-resumo { color: var(--muted); font-size: 0.83rem; line-height: 1.5; }
+    .post-item-acoes { display: flex; flex-direction: column; gap: 0.5rem; flex-shrink: 0; }
+
+    .btn { border: none; border-radius: 7px; cursor: pointer; font-family: inherit; font-size: 0.82rem; font-weight: 600; padding: 0.55rem 1.1rem; transition: all 0.2s; white-space: nowrap; }
+    .btn-publicar { background: var(--gold); color: var(--deep); }
+    .btn-publicar:hover { background: var(--gold-light); }
+    .btn-publicar:disabled { opacity: 0.5; cursor: not-allowed; }
+    .btn-ver { background: var(--surface2); color: var(--text); }
+    .btn-ver:hover { background: #46566B; }
+
+    .badge {
+      display: inline-block; border-radius: 4px; font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.04em; padding: 0.2rem 0.55rem; text-transform: uppercase;
+    }
+    .badge-rascunho { background: rgba(168,144,96,0.15); color: var(--gold); }
+    .badge-publicado { background: rgba(39,174,96,0.15); color: #4CAF76; }
+
+    .vazio { color: var(--muted); font-size: 0.9rem; padding: 2rem; text-align: center; }
+
+    /* SOLICITAR */
+    .solicitar-form { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 2rem; }
+    .solicitar-form label { color: var(--muted); display: block; font-size: 0.8rem; letter-spacing: 0.04em; margin-bottom: 0.5rem; text-transform: uppercase; }
+    .solicitar-form input, .solicitar-form textarea {
+      width: 100%; background: var(--bg); border: 1px solid var(--line);
+      border-radius: 8px; color: var(--text); font-family: inherit; font-size: 0.95rem;
+      padding: 0.75rem 1rem; outline: none; margin-bottom: 1rem; resize: vertical;
+      transition: border-color 0.2s;
+    }
+    .solicitar-form input:focus, .solicitar-form textarea:focus { border-color: var(--gold); }
+    .btn-solicitar { background: var(--gold); border: none; border-radius: 8px; color: var(--deep); cursor: pointer; font-family: inherit; font-size: 0.9rem; font-weight: 600; padding: 0.8rem 2rem; transition: background 0.2s; }
+    .btn-solicitar:hover { background: var(--gold-light); }
+    .btn-solicitar:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .temas-sugeridos { margin-top: 1.5rem; }
+    .temas-sugeridos h4 { color: var(--muted); font-size: 0.8rem; letter-spacing: 0.04em; margin-bottom: 0.75rem; text-transform: uppercase; }
+    .tema-chip {
+      background: var(--surface2); border: 1px solid var(--line); border-radius: 20px;
+      color: var(--text); cursor: pointer; display: inline-block; font-size: 0.82rem;
+      margin: 0.25rem; padding: 0.35rem 0.9rem; transition: all 0.2s;
+    }
+    .tema-chip:hover { border-color: var(--gold); color: var(--gold); }
+
+    .feedback { border-radius: 8px; font-size: 0.875rem; margin-top: 1rem; padding: 0.85rem 1rem; display: none; }
+    .feedback.ok { background: rgba(39,174,96,0.12); border: 1px solid rgba(39,174,96,0.3); color: #4CAF76; }
+    .feedback.erro { background: rgba(192,57,43,0.12); border: 1px solid rgba(192,57,43,0.3); color: #e57373; }
+
+    @media (max-width: 600px) {
+      .stats { grid-template-columns: 1fr 1fr; }
+      .post-item { flex-direction: column; }
+      .post-item-acoes { flex-direction: row; width: 100%; }
+      .header { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login-screen">
+  <div class="login-card">
+    <div class="login-titulo">Rios e Pessetti</div>
+    <div class="login-sub">Painel administrativo</div>
+    <input type="password" id="campo-senha" placeholder="Senha de acesso" autocomplete="current-password" />
+    <button class="btn-login" onclick="entrar()">Entrar</button>
+    <div class="login-erro" id="login-erro">Senha incorreta. Tente novamente.</div>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app">
+  <header class="header">
+    <div>
+      <div class="header-marca">Rios e Pessetti Advogados</div>
+      <div class="header-sub">Painel administrativo do blog</div>
+    </div>
+    <button class="btn-sair" onclick="sair()">Sair</button>
+  </header>
+
+  <main class="main">
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-num" id="stat-publicados">—</div>
+        <div class="stat-label">Posts publicados</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" id="stat-rascunhos">—</div>
+        <div class="stat-label">Aguardando aprovação</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" id="stat-proxima">—</div>
+        <div class="stat-label">Próxima geração automática</div>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab ativo" onclick="mudarTab('rascunhos', this)">Rascunhos</button>
+      <button class="tab" onclick="mudarTab('publicados', this)">Publicados</button>
+      <button class="tab" onclick="mudarTab('solicitar', this)">Solicitar artigo</button>
+    </div>
+
+    <!-- RASCUNHOS -->
+    <div class="tab-panel ativo" id="tab-rascunhos">
+      <div class="post-lista" id="lista-rascunhos">
+        <p class="vazio">Carregando rascunhos...</p>
+      </div>
+    </div>
+
+    <!-- PUBLICADOS -->
+    <div class="tab-panel" id="tab-publicados">
+      <div class="post-lista" id="lista-publicados">
+        <p class="vazio">Carregando posts...</p>
+      </div>
+    </div>
+
+    <!-- SOLICITAR -->
+    <div class="tab-panel" id="tab-solicitar">
+      <div class="solicitar-form">
+        <label for="campo-tema">Tema do artigo</label>
+        <input type="text" id="campo-tema" placeholder="Ex: como fazer inventário sem advogado" />
+        <button class="btn-solicitar" onclick="solicitarPost()">Gerar artigo</button>
+        <div class="feedback" id="feedback-solicitar"></div>
+
+        <div class="temas-sugeridos">
+          <h4>Temas sugeridos</h4>
+          <span class="tema-chip" onclick="usarTema(this)">Divórcio consensual: como funciona</span>
+          <span class="tema-chip" onclick="usarTema(this)">Acidente de trabalho: direitos do trabalhador</span>
+          <span class="tema-chip" onclick="usarTema(this)">Negativação indevida: como remover do SPC/Serasa</span>
+          <span class="tema-chip" onclick="usarTema(this)">Inventário sem testamento: como funciona</span>
+          <span class="tema-chip" onclick="usarTema(this)">Pensão por morte: quem tem direito ao INSS</span>
+          <span class="tema-chip" onclick="usarTema(this)">Rescisão indireta: quando o trabalhador pode pedir</span>
+          <span class="tema-chip" onclick="usarTema(this)">Guarda compartilhada: como funciona na prática</span>
+          <span class="tema-chip" onclick="usarTema(this)">Horas extras não pagas: como cobrar na Justiça</span>
+          <span class="tema-chip" onclick="usarTema(this)">Revisão de benefício do INSS</span>
+          <span class="tema-chip" onclick="usarTema(this)">Financiamento de imóvel com atraso na entrega</span>
+          <span class="tema-chip" onclick="usarTema(this)">Superendividamento: como a lei protege o consumidor</span>
+          <span class="tema-chip" onclick="usarTema(this)">Assédio moral no trabalho: como identificar</span>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+  let SENHA = '';
+
+  function getSenha() { return SENHA || sessionStorage.getItem('adm_s') || ''; }
+
+  async function entrar() {
+    const s = document.getElementById('campo-senha').value.trim();
+    if (!s) return;
+    const btn = document.querySelector('.btn-login');
+    btn.textContent = 'Verificando...'; btn.disabled = true;
+
+    try {
+      const r = await fetch('/.netlify/functions/admin-auth', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ senha: s }),
+      });
+      if (r.ok) {
+        SENHA = s;
+        sessionStorage.setItem('adm_s', s);
+        document.getElementById('login-screen').style.display = 'none';
+        document.getElementById('app').style.display = 'block';
+        carregarDados();
+      } else {
+        document.getElementById('login-erro').style.display = 'block';
+      }
+    } catch { document.getElementById('login-erro').style.display = 'block'; }
+
+    btn.textContent = 'Entrar'; btn.disabled = false;
+  }
+
+  function sair() {
+    SENHA = ''; sessionStorage.removeItem('adm_s');
+    document.getElementById('app').style.display = 'none';
+    document.getElementById('login-screen').style.display = 'flex';
+    document.getElementById('campo-senha').value = '';
+  }
+
+  document.getElementById('campo-senha').addEventListener('keydown', e => { if (e.key === 'Enter') entrar(); });
+
+  function mudarTab(nome, el) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('ativo'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('ativo'));
+    el.classList.add('ativo');
+    document.getElementById('tab-' + nome).classList.add('ativo');
+  }
+
+  function proxGeracaoLabel() {
+    const agora = new Date();
+    const dias = [1, 3, 5]; // seg, qua, sex
+    for (let d = 0; d < 7; d++) {
+      const t = new Date(agora);
+      t.setDate(agora.getDate() + d);
+      t.setHours(10, 0, 0, 0);
+      if (dias.includes(t.getDay()) && t > agora) {
+        const nomes = ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
+        return nomes[t.getDay()] + ' às 10h';
+      }
+    }
+    return '—';
+  }
+
+  async function carregarDados() {
+    document.getElementById('stat-proxima').textContent = proxGeracaoLabel();
+
+    // Rascunhos
+    try {
+      const r = await fetch('/blog/drafts.json?t=' + Date.now());
+      const drafts = r.ok ? await r.json() : [];
+      document.getElementById('stat-rascunhos').textContent = drafts.length;
+      renderRascunhos(drafts);
+    } catch { document.getElementById('stat-rascunhos').textContent = '0'; renderRascunhos([]); }
+
+    // Publicados
+    try {
+      const r = await fetch('/blog/posts.json?t=' + Date.now());
+      const posts = r.ok ? await r.json() : [];
+      document.getElementById('stat-publicados').textContent = posts.length;
+      renderPublicados(posts);
+    } catch { document.getElementById('stat-publicados').textContent = '0'; renderPublicados([]); }
+  }
+
+  function renderRascunhos(drafts) {
+    const el = document.getElementById('lista-rascunhos');
+    if (!drafts.length) { el.innerHTML = '<p class="vazio">Nenhum rascunho aguardando aprovação.</p>'; return; }
+    el.innerHTML = drafts.map(p => `
+      <div class="post-item">
+        <div class="post-item-info">
+          <div class="post-item-data">${p.data} &nbsp;<span class="badge badge-rascunho">Rascunho</span></div>
+          <div class="post-item-titulo">${p.titulo}</div>
+          <div class="post-item-resumo">${p.resumo}</div>
+        </div>
+        <div class="post-item-acoes">
+          <button class="btn btn-publicar" onclick="aprovar('${p.slug}', this)">Publicar</button>
+          <a class="btn btn-ver" href="/blog/drafts/${p.slug}.html" target="_blank">Prévia</a>
+        </div>
+      </div>`).join('');
+  }
+
+  function renderPublicados(posts) {
+    const el = document.getElementById('lista-publicados');
+    if (!posts.length) { el.innerHTML = '<p class="vazio">Nenhum post publicado ainda.</p>'; return; }
+    el.innerHTML = posts.map(p => `
+      <div class="post-item">
+        <div class="post-item-info">
+          <div class="post-item-data">${p.data} &nbsp;<span class="badge badge-publicado">Publicado</span></div>
+          <div class="post-item-titulo">${p.titulo}</div>
+          <div class="post-item-resumo">${p.resumo}</div>
+        </div>
+        <div class="post-item-acoes">
+          <a class="btn btn-ver" href="/blog/posts/${p.slug}" target="_blank">Ver artigo</a>
+        </div>
+      </div>`).join('');
+  }
+
+  async function aprovar(slug, btn) {
+    if (!confirm('Publicar este artigo no site?')) return;
+    btn.textContent = 'Publicando...'; btn.disabled = true;
+
+    try {
+      const r = await fetch('/.netlify/functions/admin-aprovar', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ senha: getSenha(), slug }),
+      });
+      const dados = await r.json();
+      if (r.ok) {
+        alert(dados.mensagem);
+        setTimeout(carregarDados, 3000);
+      } else {
+        alert('Erro: ' + dados.erro);
+        btn.textContent = 'Publicar'; btn.disabled = false;
+      }
+    } catch {
+      alert('Erro de conexão.');
+      btn.textContent = 'Publicar'; btn.disabled = false;
+    }
+  }
+
+  function usarTema(el) {
+    document.getElementById('campo-tema').value = el.textContent;
+  }
+
+  async function solicitarPost() {
+    const tema = document.getElementById('campo-tema').value.trim();
+    const fb = document.getElementById('feedback-solicitar');
+    const btn = document.querySelector('.btn-solicitar');
+
+    if (tema.length < 5) {
+      fb.textContent = 'Descreva o tema com pelo menos 5 caracteres.';
+      fb.className = 'feedback erro'; fb.style.display = 'block'; return;
+    }
+
+    btn.textContent = 'Enviando...'; btn.disabled = true;
+    fb.style.display = 'none';
+
+    try {
+      const r = await fetch('/.netlify/functions/admin-solicitar', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ senha: getSenha(), tema }),
+      });
+      const dados = await r.json();
+      fb.textContent = r.ok ? dados.mensagem : 'Erro: ' + dados.erro;
+      fb.className = 'feedback ' + (r.ok ? 'ok' : 'erro');
+      fb.style.display = 'block';
+      if (r.ok) document.getElementById('campo-tema').value = '';
+    } catch {
+      fb.textContent = 'Erro de conexão. Tente novamente.';
+      fb.className = 'feedback erro'; fb.style.display = 'block';
+    }
+
+    btn.textContent = 'Gerar artigo'; btn.disabled = false;
+  }
+
+  // Auto-login se sessão ativa
+  const s = sessionStorage.getItem('adm_s');
+  if (s) { SENHA = s; document.getElementById('login-screen').style.display = 'none'; document.getElementById('app').style.display = 'block'; carregarDados(); }
+</script>
+</body>
+</html>

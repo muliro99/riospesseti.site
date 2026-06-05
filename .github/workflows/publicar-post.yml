@@ -1,18 +1,14 @@
-name: Gerar Post do Blog
+name: Publicar Rascunho
 
 on:
-  schedule:
-    # Segunda, quarta e sexta as 10h (Brasilia = 13h UTC)
-    - cron: '0 13 * * 1,3,5'
   workflow_dispatch:
     inputs:
-      tema:
-        description: 'Tema do artigo (deixe vazio para selecao automatica)'
-        required: false
-        default: ''
+      slug:
+        description: 'Slug do rascunho a publicar'
+        required: true
 
 jobs:
-  gerar-post:
+  publicar:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -31,8 +27,7 @@ jobs:
           git config user.name "Blog Bot"
           git config user.email "bot@riosepessetti.adv.br"
 
-      - name: Gerar rascunho
+      - name: Publicar post aprovado
         env:
-          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-          TEMA: ${{ github.event.inputs.tema }}
-        run: node scripts/gerar-post.js
+          SLUG: ${{ github.event.inputs.slug }}
+        run: node scripts/publicar-post.js
