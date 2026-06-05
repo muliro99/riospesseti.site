@@ -1,0 +1,33 @@
+name: Deletar Post
+
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: 'Slug do post a deletar'
+        required: true
+
+jobs:
+  deletar:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout do repositorio
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Configurar git
+        run: |
+          git config user.name "Blog Bot"
+          git config user.email "bot@riosepessetti.adv.br"
+
+      - name: Deletar post
+        env:
+          SLUG: ${{ github.event.inputs.slug }}
+        run: node scripts/deletar-post.js

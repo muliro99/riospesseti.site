@@ -105,6 +105,8 @@
     .btn-publicar:disabled { opacity: 0.5; cursor: not-allowed; }
     .btn-ver { background: var(--surface2); color: var(--text); }
     .btn-ver:hover { background: #46566B; }
+    .btn-excluir { background: transparent; border: 1px solid rgba(192,57,43,0.5); color: #e57373; }
+    .btn-excluir:hover { background: rgba(192,57,43,0.15); border-color: #e57373; }
 
     .badge {
       display: inline-block; border-radius: 4px; font-size: 0.72rem; font-weight: 600;
@@ -347,8 +349,32 @@
         </div>
         <div class="post-item-acoes">
           <a class="btn btn-ver" href="/blog/posts/${p.slug}" target="_blank">Ver artigo</a>
+          <button class="btn btn-excluir" onclick="deletar('${p.slug}', this)">Excluir</button>
         </div>
       </div>`).join('');
+  }
+
+  async function deletar(slug, btn) {
+    if (!confirm('Tem certeza que deseja excluir este artigo? Esta ação não pode ser desfeita.')) return;
+    btn.textContent = 'Excluindo...'; btn.disabled = true;
+
+    try {
+      const r = await fetch('/.netlify/functions/admin-deletar', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ senha: getSenha(), slug }),
+      });
+      const dados = await r.json();
+      if (r.ok) {
+        alert(dados.mensagem);
+        setTimeout(carregarDados, 3000);
+      } else {
+        alert('Erro: ' + dados.erro + (dados.detalhe ? ' — ' + dados.detalhe : ''));
+        btn.textContent = 'Excluir'; btn.disabled = false;
+      }
+    } catch {
+      alert('Erro de conexão.');
+      btn.textContent = 'Excluir'; btn.disabled = false;
+    }
   }
 
   async function aprovar(slug, btn) {
